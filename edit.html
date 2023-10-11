@@ -71,13 +71,13 @@
         <form name="student" action="action.html" onsubmit="return validateForm()">        
             <p>
                 이름:
-                <input type="text" name="name" value="" ><br>
+                <input type="text" name="name" value="김진서" ><br>
             </p>
             <p>생년월일:
-                <input type="date" min="1980-01-01" max="2005-12-31" name="fromdate">
+                <input type="date" min="1980-01-01" max="2005-12-31" name="fromdate" value="2003-08-18">
             </p>
             <p>
-                학번: <input type="text" name="snum" value="" placeholder="2XXXXXXX" ><br> <!--pattern="[2]{1}[0-9]{7}" required-->
+                학번: <input type="text" name="snum" value="22200192" placeholder="2XXXXXXX" ><br> <!--pattern="[2]{1}[0-9]{7}" required-->
             </p>
             <p>
                 학부: <select name="study">
@@ -98,14 +98,14 @@
                 </select>
             </p>
             <p>
-                MBTI: <input type="text" name="mbti" value="" pattern="[I,E]{1}[S,N]{1}[F,T]{1}[P,J]{1}"><br>
+                MBTI: <input type="text" name="mbti" value="ISTP" pattern="[I,E]{1}[S,N]{1}[F,T]{1}[P,J]{1}"><br>
             </p>
             <p>
-                전화번호<hr> <input type="tel" name="telephone_number" value="" placeholder="010-XXXX-XXXX" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br> <!--pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required-->
+                전화번호<hr> <input type="tel" name="telephone_number" value="010-4233-7943" placeholder="010-XXXX-XXXX" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"><br> <!--pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required-->
             </p>
             <p>
                 주소<hr>
-                <textarea name="address"></textarea>
+                <textarea name="address">서울 광진구 구의3동</textarea>
             </p>
             <p id="gen">성별 <hr>
                 <input type="checkbox" name="gender" value="whole" checked> 남자 <br>
@@ -116,8 +116,6 @@
                 <input type="radio" name="mint" value="whole"> 호 <br>
                 <input type="radio" name="mint" value="ground"> 불호 <br>
             </p>
-            <hr>
-            <p id="checking"><input type="checkbox" name="checking" value="whole">개인정보 수집 동의</p>
         <p>
             <hr>
             <input type="submit" value="제출">
@@ -177,15 +175,9 @@
                     address.focus();
                     return false;
                 }
-                var checking = document.student.checking;
-                if(checking.checked != true){
-                    alert("개인정보 수집에 동의해 주세요.");
-                    checking.focus();
-                    return false;
-                }
                 var editForm = confirm("게시물을 수정할까요?")
                 if(editForm) {
-                    document.getElementById('student').submi
+                    
                 } else {
                     return false;
                 }
