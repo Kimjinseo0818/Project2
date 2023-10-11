@@ -63,7 +63,7 @@
       <br>
 
       <div id="name">
-        <h1 id="start">학생 정보 수정</h1>
+        <h1 id="start">학생 정보 입력</h1>
     </div>
     <br>
 
@@ -105,18 +105,19 @@
             </p>
             <p>
                 주소<hr>
-                <textarea name="like"></textarea>
+                <textarea name="address"></textarea>
             </p>
             <p id="gen">성별 <hr>
                 <input type="checkbox" name="gender" value="whole" checked> 남자 <br>
                 <input type="checkbox" name="gender" value="ground"> 여자
             </p>
             <p id="min">민트초코 호불호 여부 <hr>
+                <input type="radio" name="mint" value="" checked> 중립<br>
                 <input type="radio" name="mint" value="whole"> 호 <br>
                 <input type="radio" name="mint" value="ground"> 불호 <br>
-                <input type="radio" name="mint" value=""> 중립 
             </p>
-            
+            <hr>
+            <p id="checking"><input type="checkbox" name="checking" value="whole">개인정보 수집 동의</p>
         <p>
             <hr>
             <input type="submit" value="제출">
@@ -136,6 +137,12 @@
                     name.focus();
                     return false;
                 }
+                var fromdate = document.student.fromdate;
+                if(fromdate.value == "") {
+                    alert("생년월일을 체크해주세요");
+                    fromdate.focus();
+                    return false;
+                }
                 var snum = document.student.snum;
                 if (snum.value == '') {
                     alert("학번을 입력하세요");
@@ -147,12 +154,41 @@
                     snum.focus();
                     return false;
                 }
-                if(student.fromdate.value == "") {
-                    alert("생년월일을 체크해주세요");
-                    student.fromdate.focus();
+                var mbti = document.student.mbti;
+                if (mbti.value == '') {
+                    alert("MBTI을 입력하세요");
+                    mbti.focus();
                     return false;
                 }
-                alert("게시물이 추가됩니다")
+                if(mbti.value.length != 4) {
+                    alert("MBTI 4자리를 입력하세요");
+                    mbti.focus();
+                    return false;
+                }
+                var telephone_number = document.student.telephone_number;
+                if (telephone_number.value == '') {
+                    alert("전화 번호를 입력하세요");
+                    telephone_number.focus();
+                    return false;
+                }
+                var address = document.student.address;
+                if(address.value.length == "") {
+                    alert("주소를 입력하세요");
+                    address.focus();
+                    return false;
+                }
+                var checking = document.student.checking;
+                if(checking.checked != true){
+                    alert("개인정보 수집에 동의해 주세요.");
+                    checking.focus();
+                    return false;
+                }
+                var editForm = confirm("게시물을 수정할까요?")
+                if(editForm) {
+                    document.getElementById('student').submi
+                } else {
+                    return false;
+                }
             }
         </script>
     </div>
